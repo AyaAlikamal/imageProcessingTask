@@ -13,8 +13,8 @@ h4, w4 = img_4.shape[:2]
 img_5 = np.zeros((max(h1, h2,h3,h4), w1+w2+w3+w4), dtype=np.uint8)
 img_5[:h1, :w1] = img_1
 img_5[:h2, w2:w1+w2] = img_2
-img_5[:h3, w3:w1+w2+w3] = img_3
-img_5[:h4, w4:w1+w2+w3+w4] = img_4
+img_5[:h3, w1+w2:w1+w2+w3] = img_3
+img_5[:h4, w1+w2+w3:w1+w2+w3+w4] = img_4
 cv2.imshow('Img_5',img_5)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
@@ -100,10 +100,10 @@ cv2.destroyAllWindows()
 #Bilateral Filtering is a HPS as it not only clear noise and making bluring for image, it also sharp the edges 
 
 #Task4
-a= np.arange(0,1000,5)
-a[a>255]=255
-a[a<255]=0
-print(a)
+image1 =cv2.imread('cat2.jpg',0)
+image1[image1>255]=255
+image1[image1<255]=0
+print(image1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
